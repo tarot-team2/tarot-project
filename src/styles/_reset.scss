@@ -1,0 +1,48 @@
+@use './variables' as *;
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: $font-body;
+  font-weight: $fw-light;
+  background-color: $color-bg;
+  color: $color-grape;
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+ul {
+  list-style: none;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: inherit;
+}
+
+input {
+  font-family: inherit;
+  border: none;
+  outline: none;
+
+  &::placeholder {
+    color: $color-faint;
+  }
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}

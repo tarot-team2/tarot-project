@@ -1,0 +1,97 @@
+// Colors - Primary (Lavander - Past Position)
+$color-lav: #9b8ec4;
+$color-lav-light: #c4bcdf;
+$color-lav-pale: #ede9f7;
+$color-lav-dark: #6b5fa0;
+
+// Colors - Secondary (Blue - Present Position)
+$color-blue:       #7baed6;
+$color-blue-light: #a8c8e8;
+$color-blue-pale:  #ddeaf7;
+$color-blue-dark:  #4a85b8;
+
+// Colors - Tertiary (Rose - Future Position)
+$color-rose:       #d67ba0;
+$color-rose-light: #e8a8c0;
+$color-rose-pale:  #f7dde9;
+$color-rose-dark:  #b0527a;
+
+// Colors - Neutrals
+$color-grape:   #2d2640;  // main text & titles 
+$color-muted:   #4a2e5c;  // secondary text & hints
+$color-faint:   #7a7390;  // placeholders & disabled
+$color-bg:      #f7f5fc;  // page background
+$color-white:   #ffffff;  // card & modal background
+
+// Colors - Position map (for loops)
+$positions: (
+    'past': $color-lav,
+    'present': $color-blue,
+    'future': $color-rose,
+);
+
+// Gradients
+$gradient-primary: linear-gradient(135deg, $color-lav, $color-blue);
+$gradient-card-back: linear-gradient(160deg, #e8e4f7, #d6e8f5, #e8d6f0);
+
+// Typography
+$font-display: 'DM Serif Display', Georgia, serif; // titles & card names
+$font-body: 'DM Sans', system-ui, sans-serif; //body, buttons & labels
+
+// Font sizes
+$fs-xs:   9px;
+$fs-sm:   11px;
+$fs-base: 13px;
+$fs-md:   15px;
+$fs-lg:   20px;
+$fs-xl:   26px;
+$fs-2xl:  32px;
+ 
+// Font weights
+$fw-light:    300;
+$fw-regular:  400;
+$fw-medium:   500;
+$fw-semibold: 600;
+
+// Spacing scale
+$space-1:  4px;
+$space-2:  8px;
+$space-3:  12px;
+$space-4:  16px;
+$space-5:  20px;
+$space-6:  24px;
+$space-8:  32px;
+
+// Border radius
+$radius-sm:   4px;   // badges
+$radius-md:   8px;   // inputs & buttons
+$radius-lg:   10px;  // small cards
+$radius-xl:   14px;  // main cards
+$radius-2xl:  20px;  // modals & frames
+$radius-full: 9999px; // pills & avatars
+
+// Borders
+$border-default: 0.5px solid rgba($color-lav, 0.15); // cards, modals, inputs
+$border-hover:   0.5px solid rgba($color-lav, 0.35); // hover state
+
+// Shadows
+$shadow-sm: 0 2px 8px rgba($color-lav, 0.10);
+$shadow-md: 0 4px 16px rgba($color-lav, 0.15);
+$shadow-lg: 0 8px 32px rgba($color-lav, 0.18);
+
+// Motion & transitions
+$transition-base:  all 0.2s ease;
+$transition-slow:  all 0.3s ease;
+ 
+$duration-fast:   0.2s;
+$duration-normal: 0.3s;
+$duration-slow:   0.4s;
+
+// Z-index scale
+$z-nav:     100;
+$z-modal:   200;
+
+// Breakpoints
+$bp-mobile:  390px;
+$bp-tablet:  768px;
+$bp-desktop: 1024px;
