@@ -24,13 +24,21 @@
         font-family: $font-display;
         font-weight: $fw-light;
         font-size: $fs-md;
+        text-decoration: none;
+
+        &:hover,
+        &:visited,
+        &:active {
+            text-decoration: none;
+            color: inherit;
+        }
     }
 
     &__logo-bullet {
         display: inline-block;
         width: $fs-xs;
         height: $fs-xs;
-        border-radius: 50%; 
+        border-radius: 50%;
         background: $gradient-primary;
     }
 
