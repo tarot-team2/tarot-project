@@ -1,15 +1,16 @@
 import "./Header.scss"
+import { Link } from "react-router"
 
 const Header = () => {
   return (
-    <header className="header">
+    <header className="header" role="banner">
 
-      <div className="header__logo">
-          <span className="header__logo-bullet" aria-hidden="true"></span>
-          <span className="header__logo-text">Contemporary Goddesses</span>
-      </div>
-      
-    {/* <NavBar className="header__navbar" /> */}
+      <Link to="/" className="header__logo" aria-label="Contemporary Goddesses Tarot - Ir a inicio">
+        <span className="header__logo-bullet" aria-hidden="true"></span>
+        <span className="header__logo-text">Contemporary Goddesses</span>
+      </Link>
+
+      {/* <NavBar className="header__navbar" /> */}
 
     </header>
   )
