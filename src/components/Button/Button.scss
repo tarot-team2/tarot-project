@@ -1,0 +1,38 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+.cta-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 320px;
+    padding: $space-4 $space-6;
+    background: $gradient-primary;
+    border-radius: $radius-full;
+    box-shadow: $shadow-sm;
+    transition: $transition-base;
+    @include tablet {
+        width: auto;
+        padding: $space-4 $space-8;
+    }
+    &__text {
+        color: $color-white;
+        font-size: $fs-md;
+        font-weight: $fw-medium;
+        letter-spacing: 0.5px;
+        text-align: center;
+    }
+    &:hover {
+        transform: translateY(-2px);
+        box-shadow: $shadow-md;
+        opacity: 0.95;
+    }
+    &:active {
+        transform: translateY(0);
+        box-shadow: $shadow-sm;
+    }
+    &:focus-visible {
+        outline: 2px solid $color-grape;
+        outline-offset: 2px;
+    }
+}
