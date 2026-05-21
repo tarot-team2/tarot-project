@@ -1,4 +1,3 @@
-import React from 'react'
 import '../DetailCard/DetailCard.scss'
 import starIcon from '../../assets/icons/star-solid-full.svg'
 
