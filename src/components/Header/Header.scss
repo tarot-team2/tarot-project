@@ -1,0 +1,57 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.header {
+    position: fixed;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    top: 0;
+    left: 0;
+    width: 100%;
+    gap: 2rem;
+    padding-inline: 1rem;
+    padding-block: 1rem;
+    z-index: 50;
+    background-color: $color-white;
+    border-bottom: $border-default;
+
+    &__logo {
+        display: flex;
+        gap: 0.5rem;
+        width: auto;
+        align-items: center;
+        font-family: $font-display;
+        font-weight: $fw-light;
+        font-size: $fs-md;
+        text-decoration: none;
+
+        &:hover,
+        &:visited,
+        &:active {
+            text-decoration: none;
+            color: inherit;
+        }
+    }
+
+    &__logo-bullet {
+        display: inline-block;
+        width: $fs-xs;
+        height: $fs-xs;
+        border-radius: 50%;
+        background: $gradient-primary;
+    }
+
+    &__navbar {
+        display: none;
+
+        @include tablet {
+            display: flex;
+        }
+
+        @include desktop {
+            display: flex;
+        }
+    }
+
+}

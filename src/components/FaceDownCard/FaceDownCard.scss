@@ -1,0 +1,37 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.face-down-card {
+  width: 80px;
+  cursor: pointer;
+  transition: $transition-base;
+
+  &__back {
+    width: 100%;
+    aspect-ratio: 2 / 3;
+    border-radius: $radius-lg;
+    background: $gradient-card-back;
+    border: $border-default;
+    transition: $transition-base;
+  }
+
+  &:hover:not(.face-down-card--disabled) {
+    transform: translateY(-4px);
+    box-shadow: $shadow-md;
+  }
+
+  // Disabled state — when 3 cards already selected
+  &--disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+
+  @include tablet {
+    width: 100px;
+  }
+
+  @include desktop {
+    width: 120px;
+  }
+}

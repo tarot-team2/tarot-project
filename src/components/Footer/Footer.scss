@@ -1,0 +1,15 @@
+@use '../../styles/variables' as *;
+
+.footer {
+  width: 100%;
+  padding: $space-4 $space-6;
+  text-align: center;
+  border-top: $border-default;
+
+  &__text {
+    font-size: $fs-xs;
+    color: $color-faint;
+    font-weight: $fw-regular;
+    letter-spacing: 0.08em;
+  }
+}
