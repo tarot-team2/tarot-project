@@ -1,0 +1,72 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+.save-lecture {
+  width: 100%;
+  padding: 1.5rem;
+  border: $border-default;
+  border-radius: $radius-xl;
+  background-color: $color-white;
+  box-shadow: $shadow-sm;
+
+  &__title {
+    margin-bottom: 1.5rem;
+    font-size: $fs-lg;
+    font-weight: $fw-semibold;
+    color: $color-grape;
+    font-family: $font-display;
+  }
+
+  &__form {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  &__input {
+    flex: 1;
+    height: 4.5rem;
+    padding-inline: 1.5rem;
+    border: $border-default;
+    border-radius: $radius-xl;
+    background-color: $color-bg;
+    font-size: $fs-md;
+    font-weight: $fw-regular;
+    color: $color-grape;
+    font-family: $font-body;
+    transition: $transition-base;
+
+    &::placeholder {
+      color: $color-faint;
+    }
+  }
+
+  &__button {
+    min-width: 16rem;
+    height: 4.5rem;
+    border-radius: $radius-xl;
+    background: $gradient-primary;
+    font-size: $fs-md;
+    font-weight: $fw-medium;
+    color: $color-white;
+    transition: $transition-base;
+
+    &:hover {
+      opacity: 0.9;
+    }
+  }
+
+  @include tablet {
+    &__title {
+      font-size: $fs-xl;
+    }
+
+    &__input {
+      font-size: $fs-lg;
+    }
+
+    &__button {
+      font-size: $fs-lg;
+    }
+  }
+}
