@@ -1,1 +1,19 @@
+.delete-all-button {
+  padding: $space-3 $space-6;
 
+  font-family: $font-body;
+  font-size: $fs-md;
+  font-weight: $fw-medium;
+
+  color: $color-rose;
+  background-color: transparent;
+
+  border: 0.5px solid rgba($color-rose, 0.35);
+  border-radius: $radius-full;
+
+  transition: $transition-base;
+
+  &:hover {
+    background-color: $color-rose-pale;
+  }
+}
