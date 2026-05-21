@@ -1,6 +1,11 @@
+
+import HistoryCard from "./components/HistoryCard/HistoryCard.jsx";
+
 function App() {
   return (
+
     <>
+    <HistoryCard />
     </>
   )
 }
