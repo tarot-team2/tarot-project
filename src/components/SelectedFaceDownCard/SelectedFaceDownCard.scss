@@ -1,1 +1,62 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
 
+.selected-face-down-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: $space-2;
+    width: 80px;
+
+    &__back {
+        width: 100%;
+        aspect-ratio: 2 / 3;
+        border-radius: $radius-lg;
+        background: $gradient-card-back;
+        border: $border-default;
+        transition: $transition-base;
+        position: relative;
+        overflow: hidden;
+    }
+
+    &__badge {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        padding: $space-1 $space-2;
+        font-size: $fs-xs;
+        font-weight: $fw-semibold;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: $color-white;
+        transition: $transition-base;
+
+        &:hover {
+            opacity: 0.8;
+        }
+    }
+
+        &--past &__badge { background: $color-lav; }
+        &--present &__badge { background: $color-blue; }
+        &--future &__badge { background: $color-rose; }
+
+        @include tablet {
+            width: 100px;
+        }
+
+        @include desktop {
+            width: 120px;
+        }
+}
+
+.selected-face-down-card--selected.selected-face-down-card--past .selected-face-down-card__back { 
+  border: 1.5px solid $color-lav; 
+}
+.selected-face-down-card--selected.selected-face-down-card--present .selected-face-down-card__back { 
+  border: 1.5px solid $color-blue; 
+}
+.selected-face-down-card--selected.selected-face-down-card--future .selected-face-down-card__back { 
+  border: 1.5px solid $color-rose; 
+}
