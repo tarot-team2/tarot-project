@@ -17,15 +17,16 @@ function DetailCard() {
   return (
     <div className='detail-card-overlay'>
         <section className='detail-card'>
-        <div className='detail-card__images-container'>
-            <div className='detail-card__arcane-image'>
-                <img src={card.imageSrc} alt={card.arcaneName} />
-                <span className='detail-card__arcane-author'>{card.author}</span>
+            <button className='detail-card__close-button'>X</button>
+            <div className='detail-card__images-container'>
+                <div className='detail-card__arcane-image'>
+                    <img src={card.imageSrc} alt={card.arcaneName} />
+                    <span className='detail-card__arcane-author'>Author: {card.author}</span>
             </div>
             
             <div className='detail-card__goddess-image'>
                 <img src={card.goddessImage} alt={card.goddessName} />
-                <span className='detail-card__goddess-author'>{card.authorGoddess}</span>
+                <span className='detail-card__goddess-author'>Author: {card.authorGoddess}</span>
             </div>
             
         </div>
