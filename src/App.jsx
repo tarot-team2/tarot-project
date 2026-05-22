@@ -1,5 +1,6 @@
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
+import HistoryCard from "./components/HistoryCard/HistoryCard";
 import { Outlet } from "react-router";
 
 function App() {
@@ -7,6 +8,7 @@ function App() {
     <div>
       <Header />
       <main>
+        <HistoryCard />
         <Outlet />
       </main>
       <Footer />
