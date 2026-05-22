@@ -1,6 +1,9 @@
+import DeleteAllButton from "./components/DeleteAllButton/DeleteAllButton"
+
 function App() {
   return (
     <>
+   <DeleteAllButton/>
     </>
   )
 }
