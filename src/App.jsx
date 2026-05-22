@@ -6,7 +6,7 @@ function App() {
   return (
     <div>
       <Header />
-      <main>
+      <main style={{ paddingBottom: '60px' }}>
         <Outlet />
       </main>
       <Footer />
