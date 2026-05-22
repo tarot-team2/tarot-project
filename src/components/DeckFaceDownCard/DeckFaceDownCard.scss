@@ -1,4 +1,6 @@
 @use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
 .deck-facedown-card {
     width: 142px;
     height: 96px;
@@ -69,14 +71,14 @@
         }
     }
     &--empty {
-        background-color: rgba($color-white, 0.6) !important;
-        border: 2px dashed $color-faint !important;
+        background-color: rgba($color-white, 0.6);
+        border: 2px dashed $color-faint;
         .deck-facedown-card__icon {
-            color: $color-faint !important;
+            color: $color-faint;
             opacity: 0.5;
         }
         .deck-facedown-card__label {
-            color: $color-faint !important;
+            color: $color-faint;
             opacity: 0.7;
         }
         .deck-facedown-card__name {
@@ -85,8 +87,8 @@
             opacity: 0.6;
         }
         &:hover {
-            border-color: $color-muted !important;
-            background-color: $color-white !important;
+            border-color: $color-muted;
+            background-color: $color-white;
         }
     }
 }
