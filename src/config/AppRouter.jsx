@@ -4,6 +4,7 @@ import LandingPage from '../pages/landingPage/landingPage';
 import LecturePage from '../pages/lecturePage/LecturePage';
 import SummaryPage from '../pages/summaryPage/SummaryPage';
 import HistoryPage from '../pages/historyPage/HistoryPage';
+import MazoPage from '../pages/mazoPage/MazoPage';
 
 export const router = createBrowserRouter([
     {
@@ -13,6 +14,10 @@ export const router = createBrowserRouter([
               {
                 index: true,
                 element: <LandingPage />
+            },
+            {
+                path: '/mazo',
+                element: <MazoPage />
             },
               {
               path: '/lecture',

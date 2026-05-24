@@ -5,14 +5,14 @@ import { Outlet } from "react-router";
 
 function App() {
   return (
-    <div>
+    <>
       <Header />
       <main>
         <HistoryCard />
         <Outlet />
       </main>
       <Footer />
-    </div>
+    </>
   )
 }
 
