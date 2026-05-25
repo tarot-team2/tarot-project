@@ -1,10 +1,9 @@
-import React from 'react';
 import './DeckFaceDownCard.scss';
 
 const CARD_CONFIG = {
-  pasado: { label: 'PASADO', icon: '🌙', modifier: 'past' },
-  presente: { label: 'PRESENTE', icon: '☀️', modifier: 'present' },
-  futuro: { label: 'FUTURO', icon: '⭐', modifier: 'future' }
+  pasado: { label: 'PASADO', icon: '☽', modifier: 'past' },
+  presente: { label: 'PRESENTE', icon: '☀', modifier: 'present' },
+  futuro: { label: 'FUTURO', icon: '★', modifier: 'future' }
 };
 
 const DeckFaceDownCard = ({ type = 'pasado', cardName, onClick }) => {

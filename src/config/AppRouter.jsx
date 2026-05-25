@@ -1,9 +1,9 @@
 import { createBrowserRouter } from 'react-router'
 import App from "../App";
-import LandingPage from '../pages/landingPage/landingPage';
-import LecturePage from '../pages/lecturePage/LecturePage';
+import LandingPage from '../pages/landingPage/LandingPage';
 import SummaryPage from '../pages/summaryPage/SummaryPage';
 import HistoryPage from '../pages/historyPage/HistoryPage';
+import MazoPage from '../pages/mazoPage/MazoPage';
 
 export const router = createBrowserRouter([
     {
@@ -14,10 +14,10 @@ export const router = createBrowserRouter([
                 index: true,
                 element: <LandingPage />
             },
-              {
-              path: '/lecture',
-              element: <LecturePage/>
-          },
+            {
+                path: '/mazo',
+                element: <MazoPage />
+            },
             {
                 path: '/summary',
                 element: <SummaryPage />
