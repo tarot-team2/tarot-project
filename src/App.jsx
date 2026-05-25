@@ -4,13 +4,13 @@ import { Outlet } from "react-router";
 
 function App() {
   return (
-    <div>
-      <Header />
-      <main>
+    <>
+      <Header /> 
+      <>
         <Outlet />
-      </main>
+      </>
       <Footer />
-    </div>
+    </>
   )
 }
 
