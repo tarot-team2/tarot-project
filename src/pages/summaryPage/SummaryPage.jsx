@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useLocation, useNavigate } from 'react-router'
 import './SummaryPage.scss'
 import SummaryCard from '../../components/SummaryCard/SummaryCard'
@@ -9,8 +9,13 @@ const SummaryPage = () => {
   const navigate = useNavigate()
   const [userName, setUserName] = useState('')
 
+  useEffect(() => {
+    if (!state?.selectedCards) {
+      navigate('/mazo')
+    }
+  }, [state, navigate])
+
   if (!state?.selectedCards) {
-    navigate('/mazo')
     return null
   }
 

@@ -44,9 +44,11 @@ const MazoPage = () => {
   const isReadingComplete = selectedCount === 3
 
   const handleReveal = () => {
-    if (isReadingComplete) {
-      navigate('/summary', { state: { selectedCards } })
-    }
+      console.log('isReadingComplete:', isReadingComplete)
+      console.log('selectedCards:', selectedCards)
+      console.log('selectedCount:', selectedCount)
+      if (isReadingComplete) {
+        navigate('/summary', { state: { selectedCards } })}
   }
 
   return (
@@ -87,7 +89,7 @@ const MazoPage = () => {
       <section className='mazo-page__grid'>
         {cards.map(card => {
           const position = Object.entries(selectedCards).find(
-            ([, id]) => id === card.id
+            ([, selectedCard]) => selectedCard?.id === card.id
           )?.[0]
 
           if (position) {
