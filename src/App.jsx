@@ -3,9 +3,10 @@ import Footer from "./components/Footer/Footer";
 import { Outlet } from "react-router";
 
 function App() {
+
   return (
     <>
-      <Header />
+      <Header /> 
       <main>
         <Outlet />
       </main>

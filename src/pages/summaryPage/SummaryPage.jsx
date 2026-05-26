@@ -21,6 +21,10 @@ const SummaryPage = () => {
 
   const { past, present, future } = state.selectedCards
 
+  console.log('PAST:', past)
+  console.log('PRESENT:', present)
+  console.log('FUTURE:', future)
+
   const handleSaveReading = () => {
     if (!userName.trim()) return
     console.log('guardar lectura', { userName, past, present, future })
