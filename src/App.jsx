@@ -1,20 +1,19 @@
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
-import mazoPage from "./pages/MazoPage/MazoPage";
+import MazoPage from "./pages/mazoPage/MazoPage";
+import SummaryPage from "./pages/summaryPage/SummaryPage";
 import { Outlet } from "react-router";
 import MazoPage from "./pages/MazoPage/MazoPage";
 
 function App() {
   return (
     <>
-      <Header />
+      <Header /> 
       <main>
-        <MazoPage />
         <Outlet />
       </main>
       <Footer />
     </>
   )
 }
-
 export default App
