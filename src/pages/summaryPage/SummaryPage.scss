@@ -2,142 +2,174 @@
 @use '../../styles/mixins' as *;
 
 .summary-page {
-    padding: calc($header-height + $space-4) $space-8 $space-6;
+  width: 100%;
+  min-height: 100vh;
+
+  margin: 0 auto;
+
+  padding:
+    calc($header-height + $space-4)
+    $space-4
+    $space-6;
+
+  background-color: $color-bg;
+
+  @include desktop {
+    max-width: 1280px;
+
+    padding:
+      calc($header-height + $space-8)
+      $space-8
+      $space-8;
+  }
+
+  /* ========================= */
+  /* HERO */
+  /* ========================= */
+
+  &__hero {
+    margin-bottom: $space-6;
+
+    @include desktop {
+      margin-bottom: $space-8;
+    }
+  }
+
+  &__title {
+    font-family: $font-display;
+    font-size: $fs-2xl;
+    font-weight: $fw-regular;
+
+    color: $color-grape;
+
+    margin-bottom: $space-2;
+  }
+
+  &__subtitle {
+    font-family: $font-body;
+    font-size: $fs-md;
+    font-weight: $fw-light;
+
+    font-style: italic;
+
+    color: $color-muted;
+  }
+
+  /* ========================= */
+  /* CARDS */
+  /* ========================= */
+
+  &__cards {
+    display: flex;
+    flex-direction: column;
+
+    gap: $space-5;
+
+    margin-bottom: $space-6;
+
+    @include desktop {
+        display: grid;
+
+        grid-template-columns: repeat(auto-fit, minmax(320px, 360px));
+
+        justify-content: center;
+
+        gap: $space-6;
+    }
+  }
+
+  /* ========================= */
+  /* SAVE SECTION */
+  /* ========================= */
+
+  &__save {
     width: 100%;
-    margin: 0 auto;
 
-    &__hero {
-        margin-bottom: $space-6;
+    padding: $space-5;
+
+    border: $border-default;
+    border-radius: $radius-xl;
+
+    background-color: $color-white;
+
+    box-shadow: $shadow-sm;
+  }
+
+  &__save-title {
+    margin-bottom: $space-4;
+
+    font-family: $font-display;
+    font-size: $fs-lg;
+    font-weight: $fw-semibold;
+
+    color: $color-grape;
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+
+    gap: $space-3;
+
+    @include tablet {
+      flex-direction: row;
+      align-items: center;
+    }
+  }
+
+  &__input {
+    flex: 1;
+
+    height: 56px;
+
+    padding-inline: $space-4;
+
+    border: $border-default;
+    border-radius: $radius-lg;
+
+    background-color: $color-bg;
+
+    font-family: $font-body;
+    font-size: $fs-md;
+
+    color: $color-grape;
+
+    transition: $transition-base;
+
+    &::placeholder {
+      color: $color-faint;
     }
 
-    &__title {
-        font-family: $font-display;
-        font-size: $fs-xl;
-        font-weight: $fw-regular;
-        color: $color-grape;
-        margin-bottom: $space-1;
+    &:focus {
+      outline: none;
+      border: $border-hover;
+    }
+  }
+
+  &__button {
+    width: 100%;
+    min-width: 180px;
+    height: 56px;
+
+    border-radius: $radius-lg;
+
+    background: $gradient-primary;
+
+    font-family: $font-body;
+    font-size: $fs-md;
+    font-weight: $fw-medium;
+
+    color: $color-white;
+
+    transition: $transition-base;
+
+    @include tablet {
+      width: auto;
     }
 
-    &__subtitle {
-        font-family: $font-body;
-        font-size: $fs-md;
-        color: $color-muted;
-        font-weight: $fw-light;
-        margin-bottom: $space-4;
+    &:hover {
+      opacity: 0.92;
+      transform: translateY(-2px);
     }
-
-    &__cards {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-around;
-        gap: $space-4;
-        margin-bottom: $space-4;
-
-        @include desktop {
-            flex-direction: row;
-        }
-    }
-
-    /*  &__save {
-        display: flex;
-        flex-direction: column;
-         text-align: left;
-        padding-top: $space-4;
-        width: 100%;
-        height: auto;
-        background-color: $color-white;
-        border: $border-default;
-        border-radius: $radius-xl;
-    }
-
-    &__save-title {
-        font-family: $font-body;
-        font-size: $fs-md;
-        font-weight: $fw-semibold;
-        padding: 1rem;
-       
-    }
-
-    &__form {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-around;
-          width: 100%;
-        height: auto;
-         padding: 1rem;
-    }*/
-    &__save {
-        width: 100%;
-        padding: 1.5rem;
-        border: $border-default;
-        border-radius: $radius-xl;
-        background-color: $color-white;
-        box-shadow: $shadow-sm;
-
-        &__save-title {
-            margin-bottom: 1.5rem;
-            font-size: $fs-lg;
-            font-weight: $fw-semibold;
-            color: $color-grape;
-            font-family: $font-display;
-        }
-
-        &__form {
-            display: flex;
-            flex-direction: row;
-            justify-content: space-between;
-            width: 100%;
-            height: auto;
-            gap: 1rem;
-        }
-
-
-        &__input {
-            flex: 1;
-            height: 4.5rem;
-            padding-inline: 1.5rem;
-            border: $border-default;
-            border-radius: $radius-xl;
-            background-color: $color-faint;
-            font-size: $fs-md;
-            font-weight: $fw-regular;
-            color: $color-grape;
-            font-family: $font-body;
-            transition: $transition-base;
-
-            &::placeholder {
-                color: $color-faint;
-            }
-        }
-
-        &__button {
-            min-width: 16rem;
-            height: 4.5rem;
-            border-radius: $radius-xl;
-            background: $gradient-primary;
-            font-size: $fs-md;
-            font-weight: $fw-medium;
-            color: $color-white;
-            transition: $transition-base;
-
-            &:hover {
-                opacity: 0.9;
-            }
-        }
-
-        @include tablet {
-            &__title {
-                font-size: $fs-xl;
-            }
-
-            &__input {
-                font-size: $fs-lg;
-            }
-
-            &__button {
-                font-size: $fs-lg;
-            }
-        }
-
-    }
+  }
 }
