@@ -5,7 +5,7 @@ import { Outlet } from "react-router";
 function App() {
   return (
     <>
-      <Header />
+      <Header /> 
       <main>
         <Outlet />
       </main>
@@ -13,5 +13,4 @@ function App() {
     </>
   )
 }
-
 export default App
