@@ -1,9 +1,8 @@
-// TarotApiService.js
 import axios from 'axios'
 
 const BASE_URL = 'https://6872278c76a5723aacd3cbb3.mockapi.io/api/v1'
 
-const TarotApiService = {
+const tarotApiService = {
   // Get all tarot cards
   getAllCards: () => {
     return axios.get(`${BASE_URL}/tarot`)
@@ -17,4 +16,4 @@ const TarotApiService = {
   },
 }
 
-export default TarotApiService
+export default tarotApiService
