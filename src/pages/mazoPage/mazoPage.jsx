@@ -25,12 +25,13 @@ const MazoPage = () => {
   }, [])
 
   const handleSelectCard = (cardId) => {
+    const fullCard = cards.find(card => card.id === cardId)
     if (!selectedCards.past) {
-      setSelectedCards({ ...selectedCards, past: cardId })
+      setSelectedCards({ ...selectedCards, past: fullCard })
     } else if (!selectedCards.present) {
-      setSelectedCards({ ...selectedCards, present: cardId })
+      setSelectedCards({ ...selectedCards, present: fullCard })
     } else if (!selectedCards.future) {
-      setSelectedCards({ ...selectedCards, future: cardId })
+      setSelectedCards({ ...selectedCards, future: fullCard })
     }
   }
 
@@ -43,9 +44,11 @@ const MazoPage = () => {
   const isReadingComplete = selectedCount === 3
 
   const handleReveal = () => {
-    if (isReadingComplete) {
-      navigate('/summary')
-    }
+      console.log('isReadingComplete:', isReadingComplete)
+      console.log('selectedCards:', selectedCards)
+      console.log('selectedCount:', selectedCount)
+      if (isReadingComplete) {
+        navigate('/summary', { state: { selectedCards } })}
   }
 
   return (
@@ -86,19 +89,19 @@ const MazoPage = () => {
       <section className='mazo-page__grid'>
         {cards.map(card => {
           const position = Object.entries(selectedCards).find(
-            ([, id]) => id === card.id
+            ([, selectedCard]) => selectedCard?.id === card.id
           )?.[0]
 
           if (position) {
             return (
-            <SelectedFaceDownCard
+              <SelectedFaceDownCard
                 key={card.id}
                 position={position}
                 cardId={card.id}
                 onDeselect={() => handleDeselectCard(position)}
-            />
+              />
             )
-        }
+          }
 
           return (
             <FaceDownCard
