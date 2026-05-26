@@ -1,0 +1,95 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.deck-facedown-card {
+    width: 100%;
+    max-width: 320px;
+    height: 120px;
+    border-radius: $radius-2xl;
+    padding: $space-3;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-family: $font-body;
+    background-color: $color-white;
+    transition: $transition-base;
+    cursor: pointer;
+    &__icon {
+        font-size: $fs-md;
+        margin-bottom: $space-1;
+        color: $color-grape;
+        transition: $transition-base;
+    }
+    &__label {
+        font-size: $fs-sm;
+        font-weight: $fw-semibold;
+        letter-spacing: 0.5px;
+        margin-bottom: $space-1;
+        text-transform: uppercase;
+    }
+    &__name {
+        font-size: $fs-base;
+        font-weight: $fw-medium;
+        color: $color-grape;
+        margin: 0;
+    }
+    &--selected {
+        &:hover {
+            opacity: 0.9;
+        }
+    }
+    &--past {
+        background-color: $color-lav-pale;
+        border: 2px solid $color-lav;
+        .deck-facedown-card__label {
+            color: $color-lav;
+        }
+        .deck-facedown-card__icon {
+            color: $color-lav-dark;
+        }
+    }
+    &--present {
+        background-color: $color-blue-pale;
+        border: 2px solid $color-blue;
+        .deck-facedown-card__label {
+            color: $color-blue;
+        }
+        .deck-facedown-card__icon {
+            color: $color-blue-dark;
+        }
+    }
+    &--future {
+        background-color: $color-rose-pale;
+        border: 2px solid $color-rose;
+        .deck-facedown-card__label {
+            color: $color-rose;
+        }
+        .deck-facedown-card__icon {
+            color: $color-rose-dark;
+        }
+    }
+    &--empty {
+        background-color: rgba($color-white, 0.6);
+        border: 2px dashed $color-faint;
+        .deck-facedown-card__icon {
+            color: $color-faint;
+            opacity: 0.5;
+        }
+        .deck-facedown-card__label {
+            color: $color-faint;
+            opacity: 0.7;
+        }
+        .deck-facedown-card__name {
+            color: $color-faint;
+            font-style: italic;
+            opacity: 0.6;
+        }
+        &:hover {
+            border-color: $color-muted;
+            background-color: $color-white;
+        }
+    }
+}

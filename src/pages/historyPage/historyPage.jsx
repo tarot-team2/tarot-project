@@ -17,4 +17,10 @@ return (
 )
 
 }
-export default historypage;
+export default historypage;function HistoryPage() {
+  return (
+    <div>HistoryPage</div>
+  )
+}
+
+export default HistoryPage

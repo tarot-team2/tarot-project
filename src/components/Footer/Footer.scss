@@ -1,0 +1,20 @@
+@use '../../styles/variables' as *;
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  font-family: $font-body;
+  padding: $space-4 $space-6;
+  text-align: center;
+  border-top: $border-default;
+  background-color: $color-white;
+  z-index: $z-nav;
+
+  &__text {
+    font-size: $fs-sm;
+    color: $color-faint;
+    font-weight: $fw-regular;
+    letter-spacing: 0.08em;
+  }
+}

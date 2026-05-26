@@ -1,0 +1,57 @@
+@use "../../styles/variables" as *;
+
+.nav-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+
+  width: 100%;
+  height: 8rem;
+
+  padding-inline: $space-4;
+
+  background-color: $color-white;
+
+  border-top: $border-default;
+
+  border-top-left-radius: $radius-2xl;
+  border-top-right-radius: $radius-2xl;
+
+  box-shadow: $shadow-sm;
+}
+
+.nav-bar__list {
+  height: 100%;
+
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.nav-bar__item {
+  display: flex;
+}
+
+.nav-bar__link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  min-width: 8rem;
+  height: 3.2rem;
+
+  border-radius: $radius-md;
+
+  font-size: $fs-md;
+  font-weight: $fw-regular;
+  color: $color-faint;
+
+  transition: $transition-base;
+}
+
+.nav-bar__link--active {
+  background-color: $color-bg;
+
+  color: $color-grape;
+  font-weight: $fw-medium;
+}
