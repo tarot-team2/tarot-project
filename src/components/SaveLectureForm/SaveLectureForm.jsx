@@ -1,14 +1,12 @@
-import './SaveLectureForm.scss';
-
-function SaveLectureForm() {
+function SaveLectureForm({ title, placeholder, buttonText }) {
   return (
     <section className="save-lecture">
-      <h3 className="save-lecture__title">Guardar lectura</h3>
+      <h3 className="save-lecture__title">{title}</h3>
 
       <form className="save-lecture__form">
         <input
           type="text"
-          placeholder="Tu nombre..."
+          placeholder={placeholder}
           className="save-lecture__input"
         />
 
@@ -16,11 +14,10 @@ function SaveLectureForm() {
           type="submit"
           className="save-lecture__button"
         >
-          Guardar
+          {buttonText}
         </button>
       </form>
     </section>
   );
 }
-
-export default SaveLectureForm;
+ export  default SaveLectureForm ;      
