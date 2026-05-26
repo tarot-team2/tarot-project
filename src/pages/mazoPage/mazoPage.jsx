@@ -20,7 +20,12 @@ const MazoPage = () => {
 
   useEffect(() => {
     TarotApiService.getAllCards()
-      .then(data => setCards(data))
+      .then(data => {
+        const shuffledCards = [...data].sort(
+          () => Math.random() - 0.5
+        )
+        setCards(shuffledCards)
+      })
       .catch(error => console.error('Error fetching cards:', error))
   }, [])
 

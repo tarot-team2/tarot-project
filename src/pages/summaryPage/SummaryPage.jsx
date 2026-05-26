@@ -9,16 +9,7 @@ const SummaryPage = () => {
   const navigate = useNavigate()
   const [userName, setUserName] = useState('')
 
-  const fakeCard = {
-
-    arcaneNumber: "Arcano 0",
-    name: "El Loco",
-    image: 'https://upload.wikimedia.org/wikipedia/commons/9/90/RWS_Tarot_00_Fool.jpg',
-    meaning: "El viaje del Loco hacia el Mundo comienza en el número 0, un punto incierto donde todo es posible y se requiere una gran dosis de fe. Esta carta representa a quienes se aventuran en territorios inexplorados y llenos de misterio. Es la manifestación del impulso de lanzarse al abismo sin garantías.",
-    goddessName: "Fei-Fei Li"
-  }
-
-  /*useEffect(() => {
+  useEffect(() => {
     if (!state?.selectedCards) {
       navigate('/mazo')
     }
@@ -26,9 +17,13 @@ const SummaryPage = () => {
 
   if (!state?.selectedCards) {
     return null
-  }*/
+  }
 
   const { past, present, future } = state.selectedCards
+
+  console.log('PAST:', past)
+  console.log('PRESENT:', present)
+  console.log('FUTURE:', future)
 
   const handleSaveReading = () => {
     if (!userName.trim()) return
@@ -45,9 +40,9 @@ const SummaryPage = () => {
       </section>
 
       <section className="summary-page__cards">
-        <SummaryCard position="past"    card={fakeCard} />
-        <SummaryCard position="present" card={fakeCard} />
-        <SummaryCard position="future"  card={fakeCard} />
+        <SummaryCard position="past"    card={past} />
+        <SummaryCard position="present" card={present} />
+        <SummaryCard position="future"  card={future} />
       </section>
 
       <section className="summary-page__save">
