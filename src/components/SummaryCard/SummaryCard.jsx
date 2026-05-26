@@ -11,16 +11,28 @@ const SummaryCard = ({ position, card }) => {
 
   return (
     <article className={`summary-card summary-card--${position}`}>
-      <h2 className="summary-card__position">{POSITION_LABELS[position]}</h2>
-      <img
-        className="summary-card__image"
-        src={card.image}
-        alt={card.name}
+
+      <div className="summary-card__top">
+        <div className="summary-card__image-line"></div>
+        <img className="summary-card__image"
+        src={card.arcaneImage.imageSrc}
+        alt={card.arcaneName}
       />
-      <div className="summary-card__info">
-        <h3 className="summary-card__name">{card.name}</h3>
-        <p className="summary-card__meaning">{card.meaning}</p>
+        
+        <div className="summary-card__info">
+          <h2 className="summary-card__position">{POSITION_LABELS[position]}</h2>
+          <h3 className="summary-card__name">{card.arcadeName}</h3>
+          <p className="summary-card__meaning">{card.arcaneDescription}</p>
+        </div>
       </div>
+
+      <div className="summary-card__goddess-info">
+        <div className="summary-card__goddess-wrapper">
+          <div className="summary-card__goddess-circle"></div>
+          <p className="summary-card__goddess">{card.goddessName}</p>
+        </div>
+      </div>
+
     </article>
   )
 }
