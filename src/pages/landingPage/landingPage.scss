@@ -1,0 +1,205 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+.landing-page {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    width: 100%;
+    background-color: $color-bg;
+    padding-bottom: 90px;
+    &__main {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        max-width: 1024px;
+        margin: 0 auto;
+        padding: $space-4;
+        gap: $space-6;
+        @include desktop {
+            gap: $space-8;
+            padding-block: $space-6;
+        }
+    }
+    &__hero {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: $space-3;
+        width: 100%;
+    }
+    &__title {
+        font-family: $font-display;
+        font-size: $fs-2xl;
+        font-weight: $fw-light;
+        color: $color-grape;
+        line-height: 1.2;
+        margin-top: $space-1;
+        &--italic {
+            font-style: italic;
+            font-family: $font-display;
+        }
+        @include tablet {
+            font-size: 3.5rem;
+        }
+    }
+    &__description {
+        font-family: $font-body;
+        font-size: $fs-md;
+        color: $color-muted;
+        max-width: 440px;
+        line-height: 1.5;
+        margin-bottom: $space-2;
+    }
+    &__cta {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+    &__cards-container {
+        display: flex;
+        justify-content: center;
+        gap: $space-3;
+        width: 100%;
+        @include tablet {
+            gap: $space-6;
+        }
+    }
+}
+
+.tag {
+    display: inline-flex;
+    align-items: center;
+    gap: $space-2;
+    background-color: $color-lav-pale;
+    padding: $space-2 $space-4;
+    border-radius: $radius-full;
+    width: fit-content;
+    &__circle {
+        width: 10px;
+        height: 10px;
+        background-color: $color-lav-light;
+        border-radius: $radius-full;
+        flex-shrink: 0;
+    }
+    &__text {
+        font-family: $font-body;
+        font-size: $fs-base;
+        font-weight: $fw-semibold;
+        color: $color-lav-dark;
+        line-height: 1;
+    }
+}
+
+.landing-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: $space-2;
+    border-radius: $radius-lg;
+    background: $gradient-card-back;
+    border: $border-default;
+    cursor: pointer;
+    position: relative;
+    transition: $transition-base;
+    width: 80px;
+    height: 120px;
+    &__inner-border {
+        position: absolute;
+        inset: 6px;
+        border-radius: $radius-md;
+        border: 0.5px solid rgba($color-lav, 0.2);
+        transition: $transition-base;
+    }
+    &__icon {
+        font-size: $fs-md;
+        line-height: 1;
+        transition: $transition-base;
+    }
+    &__label {
+        font-family: $font-body;
+        font-size: $fs-xs;
+        font-weight: $fw-semibold;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        transition: $transition-base;
+    }
+    @include tablet {
+        width: 115px;
+        height: 175px;
+        &__icon {
+            font-size: $fs-xl;
+        }
+        &__label {
+            font-size: $fs-sm;
+        }
+    }
+    &--past {
+        &__icon,
+        &__label {
+            color: $color-lav-dark;
+        }
+        &:hover {
+            border-color: $color-lav;
+            background: rgba($color-lav-pale, 0.5);
+            box-shadow: 0 8px 24px rgba($color-lav, 0.2);
+            .landing-card__icon {
+                transform: scale(1.2) rotate(-8deg);
+            }
+        }
+    }
+    &--present {
+        &__icon,
+        &__label {
+            color: $color-blue-dark;
+        }
+        &:hover {
+            border-color: $color-blue;
+            background: rgba($color-blue-pale, 0.5);
+            box-shadow: 0 8px 24px rgba($color-blue, 0.2);
+            .landing-card__icon {
+                transform: scale(1.2) translateY(-3px);
+            }
+        }
+    }
+    &--future {
+        &__icon,
+        &__label {
+            color: $color-rose-dark;
+        }
+        &:hover {
+            border-color: $color-rose;
+            background: rgba($color-rose-pale, 0.5);
+            box-shadow: 0 8px 24px rgba($color-rose, 0.2);
+            .landing-card__icon {
+                transform: scale(1.2) rotate(8deg);
+            }
+        }
+    }
+    &:hover {
+        transform: translateY(-6px);
+        .landing-card__inner-border {
+            inset: 4px;
+            border-color: rgba($color-grape, 0.15);
+        }
+    }
+}
+
+.footer {
+    width: 100%;
+    text-align: center;
+    padding: $space-4;
+    margin-top: auto;
+    border-top: $border-default;
+    background-color: transparent;
+    &__text {
+        font-family: $font-body;
+        font-size: $fs-xs;
+        color: $color-faint;
+        font-weight: $fw-regular;
+    }
+}
