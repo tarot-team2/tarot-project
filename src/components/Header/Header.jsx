@@ -1,4 +1,5 @@
 import "./Header.scss"
+import "../NavBar/NavBar.scss"
 import { Link } from "react-router"
 
 const Header = () => {
@@ -10,8 +11,7 @@ const Header = () => {
         <span className="header__logo-text">Contemporary Goddesses</span>
       </Link>
 
-      {/* <NavBar className="header__navbar" /> */}
-
+      <NavBar />
     </header>
   )
 }
