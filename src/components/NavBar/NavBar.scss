@@ -14,22 +14,25 @@
 
   border-top: $border-default;
 
-  border-top-left-radius: $radius-2xl;
-  border-top-right-radius: $radius-2xl;
-
-  box-shadow: $shadow-sm;
+  display: flex;
+  align-items: center;
 }
 
 .nav-bar__list {
+  width: 100%;
   height: 100%;
 
   display: flex;
   justify-content: space-around;
   align-items: center;
+
+  list-style: none;
 }
 
 .nav-bar__item {
   display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .nav-bar__link {
@@ -38,13 +41,18 @@
   justify-content: center;
 
   min-width: 8rem;
-  height: 3.2rem;
+  height: 3.6rem;
+
+  padding-inline: $space-3;
 
   border-radius: $radius-md;
 
   font-size: $fs-md;
   font-weight: $fw-regular;
+
   color: $color-faint;
+
+  text-decoration: none;
 
   transition: $transition-base;
 }
@@ -55,3 +63,15 @@
   color: $color-grape;
   font-weight: $fw-medium;
 }
+
+@media (min-width: $bp-desktop) {
+  .nav-bar {
+    top: 0;
+    bottom: auto;
+
+    border-top: none;
+    border-bottom: $border-default;
+  }
+}
+
+

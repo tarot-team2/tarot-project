@@ -16,7 +16,7 @@ function NavBar() {
         <li className="nav-bar__item">
           <a
             href="/lectura"
-            className="nav-bar__link nav-bar__link--active"
+            className="nav-bar__link nav-bar__link"
           >
             Lectura
           </a>
