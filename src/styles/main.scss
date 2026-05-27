@@ -3,6 +3,9 @@
 @use './reset';
 
 main {
-  padding-bottom: 60px; // fixed footer
-  padding-top: 60px; // header space
+  padding-top: 60px; // header
+
+  @include tablet {
+    padding-bottom: 60px; // space for fixed footer
+  }
 }

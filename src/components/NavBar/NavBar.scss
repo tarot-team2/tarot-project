@@ -1,57 +1,78 @@
 @use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
 
 .nav-bar {
   position: fixed;
   bottom: 0;
   left: 0;
-
   width: 100%;
-  height: 8rem;
-
+  height: 60px;
   padding-inline: $space-4;
-
   background-color: $color-white;
-
   border-top: $border-default;
-
   border-top-left-radius: $radius-2xl;
   border-top-right-radius: $radius-2xl;
-
   box-shadow: $shadow-sm;
-}
 
-.nav-bar__list {
-  height: 100%;
+  @include tablet {
+    position: static;
+    width: auto;
+    height: auto;
+    padding: 0;
+    background: none;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+  }
 
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-}
+  &__list {
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
 
-.nav-bar__item {
-  display: flex;
-}
+    @include tablet {
+      gap: $space-2;
+    }
+  }
 
-.nav-bar__link {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  &__item {
+    display: flex;
+  }
 
-  min-width: 8rem;
-  height: 3.2rem;
+  &__link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 80px;
+    height: 100%;
+    border-radius: 0;
+    font-size: $fs-base;
+    font-weight: $fw-regular;
+    color: $color-faint;
+    transition: $transition-base;
+    border-top: 2px solid transparent;
 
-  border-radius: $radius-md;
+    @include tablet {
+      min-width: auto;
+      padding-inline: $space-3;
+      height: 48px;
+      border-radius: 0;
+      border-bottom: 2px solid transparent;
+    }
 
-  font-size: $fs-md;
-  font-weight: $fw-regular;
-  color: $color-faint;
+    &--active {
+      background: none;
+      color: $color-grape;
+      font-weight: $fw-medium;
+      border-top: 2px solid $color-lav;
 
-  transition: $transition-base;
-}
-
-.nav-bar__link--active {
-  background-color: $color-bg;
-
-  color: $color-grape;
-  font-weight: $fw-medium;
+      @include tablet {
+        background: none;
+        color: $color-lav;
+        border-top: none;
+        border-bottom: 2px solid $color-lav;
+      }
+    }
+  }
 }
