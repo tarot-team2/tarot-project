@@ -1,14 +1,30 @@
-import './HistoryPage.scss'
+import "./HistoryPage.scss";
+import Header from "../../components/Header/Header";
+import HistoryCard from "../../components/HistoryCard/HistoryCard";
+import DeleteAllButton from "../..DeleteAllButton/DeleteAllButton";
+import NavBar from "../../components/NavBar/NavBar";
 
-const HistoryPage = () => {
+function HistoryPage() {
   return (
-    <div className="history-page">
-      <h1 className="history-page__title">Historial</h1>
-      <section className="history-page__list">
-        {/* history items will go here */}
-      </section>
-    </div>
-  )
+    <>
+      <Header />
+
+      <main className="history-page">
+
+        <h1 className="history-page__title">
+          Historial
+        </h1>
+
+        <div className="history-page__cards">
+          <HistoryCard />
+          <DeleteAllButton />
+        </div>
+
+      </main>
+
+      <NavBar />
+    </>
+  );
 }
 
-export default HistoryPage
+export default HistoryPage;
