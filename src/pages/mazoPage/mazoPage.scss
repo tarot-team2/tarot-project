@@ -1,0 +1,75 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.mazo-page {
+    padding: $space-6 $space-8;
+    width: 100%;
+    margin: 0 auto;
+    overflow-x: hidden;
+
+    &__header {
+        margin-bottom: $space-6;
+    }
+
+    &__title {
+        font-family: $font-display;
+        font-size: $fs-xl;
+        color: $color-grape;
+        margin-bottom: $space-1;
+    }
+
+    &__subtitle {
+        font-size: $fs-md;
+        color: $color-muted;
+        font-weight: $fw-light;
+        margin-bottom: $space-4;
+    }
+
+    &__slots {
+        display: flex;
+        gap: $space-3;
+        margin-bottom: $space-4;
+        background: $color-white;
+        border-radius: $radius-xl;
+        padding: $space-4;
+        border: $border-default;
+        justify-content: center;
+
+        @include tablet {
+            gap: $space-4;
+        }
+    }
+
+    &__actions {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: $space-4;
+    }
+
+    &__count {
+        font-size: $fs-md;
+        color: $color-muted;
+        font-weight: $fw-medium;
+
+        span {
+            color: $color-lav;
+            font-weight: $fw-semibold;
+        }
+    }
+
+    &__grid {
+        display: grid;
+        justify-content: center;
+        grid-template-columns: repeat(4, 1fr);
+        gap: $space-2;
+
+        @include tablet {
+            grid-template-columns: repeat(7, 1fr);
+        }
+
+        @include desktop {
+            grid-template-columns: repeat(11, 1fr);
+        }
+    }
+}

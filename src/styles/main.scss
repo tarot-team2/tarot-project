@@ -1,3 +1,11 @@
 @use './variables' as *;
 @use './mixins' as *;
 @use './reset';
+
+main {
+  padding-top: 60px; // header
+
+  @include tablet {
+    padding-bottom: 60px; // space for fixed footer
+  }
+}

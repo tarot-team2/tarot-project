@@ -1,11 +1,12 @@
 @use '../../styles/variables' as *;
 @use '../../styles/mixins' as *;
+
 .cta-button {
     display: inline-flex;
     align-items: center;
     justify-content: center;
     width: 100%;
-    max-width: 320px;
+    max-width: 180px;
     padding: $space-4 $space-6;
     background: $gradient-primary;
     border-radius: $radius-full;
@@ -14,6 +15,7 @@
     @include tablet {
         width: auto;
         padding: $space-4 $space-8;
+        max-width: 320px;
     }
     &__text {
         color: $color-white;
