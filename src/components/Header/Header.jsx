@@ -1,5 +1,5 @@
 import "./Header.scss"
-import "../NavBar/NavBar.scss"
+import NavBar from "../NavBar/NavBar"
 import { Link } from "react-router"
 
 const Header = () => {
