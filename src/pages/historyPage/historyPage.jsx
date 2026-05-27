@@ -1,25 +1,13 @@
-import Header from "../components/Header/Header";
-function historypage () {
-return (
-    <>
-    
+import './HistoryPage.scss'
 
-    <main classname="history-page">
-        <h1>Historial</h1>
-        <section classname="history-page_list">
-           <header/>
-           
-        
-        </section>
-
-        </main>
-    </>
-)
-
-}
-export default historypage;function HistoryPage() {
+const HistoryPage = () => {
   return (
-    <div>HistoryPage</div>
+    <div className="history-page">
+      <h1 className="history-page__title">Historial</h1>
+      <section className="history-page__list">
+        {/* history items will go here */}
+      </section>
+    </div>
   )
 }
 
