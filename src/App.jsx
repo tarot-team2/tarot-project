@@ -1,11 +1,9 @@
-import NavBar from "./components/NavBar/NavBar";
-
-
+import DeleteAllButton from "./components/DeleteAllButton/DeleteAllButton"
 
 function App() {
   return (
     <>
-   <NavBar/>
+   <DeleteAllButton/>
     </>
   )
 }
