@@ -3,11 +3,15 @@ import { useLocation, useNavigate } from 'react-router'
 import './SummaryPage.scss'
 import SummaryCard from '../../components/SummaryCard/SummaryCard'
 import Button from '../../components/Button/Button'
+import DetailCard from '../../components/DetailCard/DetailCard'
+
 
 const SummaryPage = () => {
   const { state } = useLocation()
   const navigate = useNavigate()
   const [userName, setUserName] = useState('')
+  const [selectedCard, setSelectedCard] = useState(null)
+  const [isModalOpen, setIsModalOpen] = useState(false)
 
   useEffect(() => {
     if (!state?.selectedCards) {
@@ -25,10 +29,22 @@ const SummaryPage = () => {
   console.log('PRESENT:', present)
   console.log('FUTURE:', future)
 
-  const handleSaveReading = () => {
+  const handleSaveReading = (card) => {
     if (!userName.trim()) return
     console.log('guardar lectura', { userName, past, present, future })
   }
+
+  const handleOpenModal = (card) => {
+    console.log('abrir modal', card)
+    setIsModalOpen(true)
+    setSelectedCard(card)
+  }
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false)
+    setSelectedCard(null)
+  }
+
 
   return (
     <div className="summary-page">
@@ -40,9 +56,21 @@ const SummaryPage = () => {
       </section>
 
       <section className="summary-page__cards">
-        <SummaryCard position="past"    card={past} />
-        <SummaryCard position="present" card={present} />
-        <SummaryCard position="future"  card={future} />
+        <SummaryCard 
+          position="past"    
+          card={past} 
+          onClick={() => handleOpenModal(past)}
+        />
+        <SummaryCard 
+          position="present" 
+          card={present} 
+          onClick={() => handleOpenModal(present)}
+        />
+        <SummaryCard 
+          position="future"  
+          card={future}
+          onClick={() => handleOpenModal(future)}
+        />
       </section>
 
       <section className="summary-page__save">
@@ -61,6 +89,14 @@ const SummaryPage = () => {
           />
         </div>
       </section>
+      
+      {isModalOpen && (
+        <DetailCard
+        cards={{ past, present, future }}
+        initialCard={selectedCard}
+        onClose={handleCloseModal}
+  />
+)}
       {/*<SaveLectureForm /> no se puede usar porque no admite props*/}
 
     </div>
