@@ -1,78 +1,79 @@
-import React from 'react';
-import { useNavigate } from 'react-router';
+import Tag from '../../components/Tag/Tag';
 import Button from '../../components/Button/Button';
 import './LandingPage.scss';
 
-const POSITION_CONFIG = {
-  past:    { label: 'Pasado',   icon: '☽' },
-  present: { label: 'Presente', icon: '☀' },
-  future:  { label: 'Futuro',   icon: '★' },
-};
-
-const LandingCard = ({ position }) => {
-  const navigate = useNavigate();
-  const { label, icon } = POSITION_CONFIG[position];
-
-  return (
-    <button
-      className={`landing-card landing-card--${position}`}
-      onClick={() => navigate('/lecture')}
-      type="button"
-      aria-label={`Ir a la lectura — ${label}`}
-    >
-      <div className="landing-card__inner-border" />
-      <span className="landing-card__icon" aria-hidden="true">{icon}</span>
-      <span className="landing-card__label">{label}</span>
-    </button>
-  );
-};
+const previewCards = [
+  { position: 'past',    label: 'PASADO',   icon: '\u263D' },
+  { position: 'present', label: 'PRESENTE', icon: '\u2736', isMain: true },
+  { position: 'future',  label: 'FUTURO',   icon: '\u2605' },
+];
 
 const LandingPage = () => {
-  const navigate = useNavigate();
-
-  const handleStartLecture = () => {
-    navigate('/lecture');
-  };
+  const handleStart = () => window.location.href = '/mazo';
 
   return (
     <div className="landing-page">
       <main className="landing-page__main" role="main">
-        
-        <section className="landing-page__hero">
-          <div className="tag">
-            <span className="tag__circle"></span>
-            <span className="tag__text">Women in STEM</span>
-          </div>
-          
-          <h1 className="landing-page__title">
-            Contemporary <span className="landing-page__title--italic">Goddesses</span> Tarot
-          </h1>
+        <div className="landing-page__content-layout">
 
-          <p className="landing-page__description">
-            Un homenaje a las mujeres que lideran en ciencia, tecnología, ingeniería y matemáticas.
-          </p>
+          <section className="landing-page__hero">
+            <div className="landing-page__tag-wrapper">
+              <Tag text="Women in STEM" />
+            </div>
 
-          <div className="landing-page__cta">
-            <Button
-              label="Comenzar mi lectura"
-              onClick={handleStartLecture}
-            />
-          </div>
-        </section>
+            <h1 className="landing-page__title">
+              Contemporary{' '}
+              <span className="landing-page__title--italic">Goddesses</span>{' '}
+              Tarot
+            </h1>
 
-        <section className="landing-page__cards-container" aria-label="Secciones de la lectura">
-          <LandingCard position="past" />
-          <LandingCard position="present" />
-          <LandingCard position="future" />
-        </section>
+            <p className="landing-page__positions-row">
+              PASADO &middot; PRESENTE &middot; FUTURO
+            </p>
 
+            <p className="landing-page__description">
+              Un homenaje a las mujeres que lideran en ciencia,
+              tecnologia, ingenieria y matematicas. Descubre que diosa
+              te acompana hoy.
+            </p>
+
+            <div className="landing-page__actions">
+              <Button
+                label="Comenzar mi lectura"
+                onClick={handleStart}
+              />
+            </div>
+          </section>
+
+          <section
+            className="landing-page__visual"
+            aria-label="Visualizacion interactiva del mazo"
+          >
+            <div className="landing-page__cards-container">
+              {previewCards.map((card) => (
+                <button
+                  key={card.position}
+                  type="button"
+                  onClick={handleStart}
+                  className={[
+                    'landing-preview-card',
+                    `landing-preview-card--${card.position}`,
+                    card.isMain ? 'landing-preview-card--featured' : '',
+                  ].join(' ')}
+                  aria-label={`Ir al mazo - posicion ${card.label}`}
+                >
+                  <div className="landing-preview-card__border" />
+                  <div className="landing-preview-card__content">
+                    <span className="landing-preview-card__icon">{card.icon}</span>
+                    <span className="landing-preview-card__label">{card.label}</span>
+                  </div>
+                </button>
+              ))}
+            </div>
+          </section>
+
+        </div>
       </main>
-
-      <footer className="footer">
-        <p className="footer__text">
-          © {new Date().getFullYear()} Contemporary Goddesses Tarot — Women in STEM
-        </p>
-      </footer>
     </div>
   );
 };
