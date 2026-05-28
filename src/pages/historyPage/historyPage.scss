@@ -5,15 +5,20 @@
   padding: $space-4;
   padding-top: 7rem;
   padding-bottom: 8rem;
-
   background-color: $color-bg;
 
-  &__title {
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     margin-bottom: $space-5;
+  }
 
+  &__title {
     font-family: $font-display;
     font-size: $fs-2xl;
     color: $color-grape;
+    margin: 0;
   }
 
   &__cards {
