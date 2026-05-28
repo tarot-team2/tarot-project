@@ -33,7 +33,7 @@ const HistoryCardMeta = ({ pastCard, presentCard, futureCard }) => {
           </div>
           <p className="history-card-meta__name">{cards[key].arcaneName}</p>
         </div>
-      ))}
+      ))} 
     </div>
   )
 }
