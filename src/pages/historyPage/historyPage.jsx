@@ -3,7 +3,7 @@ import './HistoryPage.scss'
 import HistoryCard from '../../components/HistoryCard/HistoryCard'
 import DeleteAllButton from '../../components/DeleteAllButton/DeleteAllButton'
 
-import { getReadings } from '../../service/readingsAPI'
+import { getReadings, updateReading } from '../../service/readingsAPI'
 import { useLoaderData } from 'react-router'
 
 const HistoryPage = () => {
@@ -24,9 +24,22 @@ const loadReadings = async () => {
   }
 }
 
-const handleEdit = (reading) => {
-  console.log('editar', reading)
+const handleEdit = async (reading) => {
+  const newName = prompt (
+    'Nuevo Nombre:',
+    reading.consultantName
+  )
+  if (!newName) return
+  try {
+    await updateReading(reading.id, {
+      consultantName: newName,
+    })
+    loadReadings()
+  } catch (error) {
+    console.error('Error al actualizar la lectura:', error)
+  }
 }
+
 
 const handleDelete = (id) => {
   console.log('borrar', id)
@@ -62,5 +75,6 @@ const handleDeleteAll = () => {
     </div>
   )
 }
+
 
 export default HistoryPage;

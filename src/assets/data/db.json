@@ -1,7 +1,7 @@
 {
   "readings": [
     {
-      "consultantName": "vivi",
+      "consultantName": "HOLIS",
       "date": "28 de mayo de 2026",
       "pastCard": {
         "arcaneName": "El Sumo Sacerdote",
@@ -24,7 +24,7 @@
       "id": "4BJ2qkojWAU"
     },
     {
-      "consultantName": "damaris",
+      "consultantName": "aida",
       "date": "28 de mayo de 2026",
       "pastCard": {
         "arcaneName": "El Juicio",
@@ -68,6 +68,52 @@
         }
       },
       "id": "Y-MXWsgDMc4"
+    },
+    {
+      "consultantName": "ruki",
+      "date": "28 de mayo de 2026",
+      "pastCard": {
+        "arcaneName": "El Juicio",
+        "arcaneImage": {
+          "imageSrc": "https://upload.wikimedia.org/wikipedia/commons/d/dd/RWS_Tarot_20_Judgement.jpg"
+        }
+      },
+      "presentCard": {
+        "arcaneName": "El Carro",
+        "arcaneImage": {
+          "imageSrc": "https://upload.wikimedia.org/wikipedia/commons/9/9b/RWS_Tarot_07_Chariot.jpg"
+        }
+      },
+      "futureCard": {
+        "arcaneName": "La Fuerza",
+        "arcaneImage": {
+          "imageSrc": "https://upload.wikimedia.org/wikipedia/commons/f/f5/RWS_Tarot_08_Strength.jpg"
+        }
+      },
+      "id": "d6wFTurI_Bo"
+    },
+    {
+      "consultantName": "lila",
+      "date": "28 de mayo de 2026",
+      "pastCard": {
+        "arcaneName": "La Fuerza",
+        "arcaneImage": {
+          "imageSrc": "https://upload.wikimedia.org/wikipedia/commons/f/f5/RWS_Tarot_08_Strength.jpg"
+        }
+      },
+      "presentCard": {
+        "arcaneName": "El Ermitaño",
+        "arcaneImage": {
+          "imageSrc": "https://upload.wikimedia.org/wikipedia/commons/4/4d/RWS_Tarot_09_Hermit.jpg"
+        }
+      },
+      "futureCard": {
+        "arcaneName": "El Diablo",
+        "arcaneImage": {
+          "imageSrc": "https://upload.wikimedia.org/wikipedia/commons/5/55/RWS_Tarot_15_Devil.jpg"
+        }
+      },
+      "id": "jrfdL1pgXyo"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
