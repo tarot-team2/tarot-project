@@ -11,7 +11,7 @@ const POSITIONS = [
   { key: 'futureCard',   label: 'Futuro',   icon: '★', modifier: 'future' },
 ]
 
-const HistoryCardMeta = ({ pastCard, presentCard, futureCard }) => {
+const HistoryCardMeta = ({ pastCard, presentCard, futureCard, onCardClick }) => {
   const cards = { pastCard, presentCard, futureCard }
 
   return (
@@ -19,7 +19,7 @@ const HistoryCardMeta = ({ pastCard, presentCard, futureCard }) => {
       {POSITIONS.map(({ key, label, icon, modifier }) => (
         <div
           key={key}
-          className={`history-card-meta__item history-card-meta__item--${modifier}`}
+          className={`history-card-meta__item history-card-meta__item--${modifier}`} onClick={() => onCardClick(cards[key])}
         >
           <span className="history-card-meta__label">
             {icon} {label}
