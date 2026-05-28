@@ -28,13 +28,17 @@ function DetailCard({ cards, initialCard, onClose }){
 
             <div className='detail-card__images-container'>
                 <div className='detail-card__arcane-image'>
-                    <img src={activeCard.arcaneImage.imageSrc} alt={activeCard.arcaneName} />
-                    <span className='detail-card__arcane-author'>Author: {activeCard.arcaneImage.author}</span>
+                    <img src={activeCard.arcaneImage?.imageSrc} alt={activeCard.arcaneName} />
+                    <span className='detail-card__arcane-author'>Author: {activeCard.arcaneImage?.author || '' }</span>
                 </div>
             
             <div className='detail-card__goddess-image'>
-                <img src={activeCard.goddessImage.imageSrc} alt={activeCard.goddessName} />
-                <span className='detail-card__goddess-author'>Author: {activeCard.goddessImage.author}</span>
+                {activeCard.goddessImage?.imageSrc && (
+                    <img src={activeCard.goddessImage.imageSrc} alt={activeCard.goddessName} 
+                    />
+                    )}
+
+                <span className='detail-card__goddess-author'>Author: {activeCard.goddessImage?.author || '' }</span>
             </div>
             
         </div>
@@ -42,18 +46,18 @@ function DetailCard({ cards, initialCard, onClose }){
         <section className='detail-card__information'>
             <div className='detail-card__arcane'>
                 <h1 className='detail-card__arcane-title'>{activeCard.arcaneName}</h1>
-                <p className='detail-card__arcane-description'>{activeCard.arcaneDescription}</p>
+                <p className='detail-card__arcane-description'>{activeCard.arcaneDescription || '' }</p>
             </div>
             
             <div className='detail-card__goddess'>
 
                 <div className='detail-card__main'>
                     <img className='detail-card__star-icon' src={starIcon} alt="Four point star" />
-                    <h2 className='detail-card__goddess-title'>{activeCard.mainTitle}</h2>
+                    <h2 className='detail-card__goddess-title'>{activeCard.mainTitle || '' }</h2>
                 </div>
 
-                <p className='detail-card__goddess-name'>{activeCard.goddessName}</p>
-                <p className='detail-card__goddess-description'>{activeCard.goddessDescription}</p>
+                <p className='detail-card__goddess-name'>{activeCard.goddessName || '' }</p>
+                <p className='detail-card__goddess-description'>{activeCard.goddessDescription || '' }</p>
             
             </div>
         </section>

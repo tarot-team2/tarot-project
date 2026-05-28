@@ -37,24 +37,9 @@ const SummaryPage = () => {
         month: 'long',
         year: 'numeric',
       }),
-        pastCard:{
-          arcaneName: past.arcaneName,
-          arcaneImage : {
-            imageSrc: past.arcaneImage.imageSrc,        
-          },
-        },
-        presentCard:{
-          arcaneName: present.arcaneName,
-          arcaneImage : {
-            imageSrc: present.arcaneImage.imageSrc,        
-          },
-        },
-        futureCard:{
-          arcaneName: future.arcaneName,
-          arcaneImage : {
-            imageSrc: future.arcaneImage.imageSrc,        
-          },
-        },
+      pastCard: past,
+      presentCard: present,
+      futureCard: future,
     }
     try {
       await saveReading(reading)
