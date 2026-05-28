@@ -28,7 +28,7 @@ function NavBar() {
         </li>
         <li className="nav-bar__item">
           <NavLink
-            to="/historial"
+            to="/history"
             className={({ isActive }) =>
               isActive ? 'nav-bar__link nav-bar__link--active' : 'nav-bar__link'
             }
