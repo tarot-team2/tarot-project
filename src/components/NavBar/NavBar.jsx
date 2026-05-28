@@ -1,38 +1,44 @@
 import './NavBar.scss';
+import { NavLink } from 'react-router'
 
 function NavBar() {
   return (
     <nav className="nav-bar">
       <ul className="nav-bar__list">
         <li className="nav-bar__item">
-          <a
-            href="/"
-            className="nav-bar__link"
+          <NavLink
+            to="/"
+            end
+            className={({ isActive }) =>
+              isActive ? 'nav-bar__link nav-bar__link--active' : 'nav-bar__link'
+            }
           >
             Inicio
-          </a>
+          </NavLink>
         </li>
-
         <li className="nav-bar__item">
-          <a
-            href="/lectura"
-            className="nav-bar__link nav-bar__link--active"
+          <NavLink
+            to="/mazo"
+            className={({ isActive }) =>
+              isActive ? 'nav-bar__link nav-bar__link--active' : 'nav-bar__link'
+            }
           >
             Lectura
-          </a>
+          </NavLink>
         </li>
-
         <li className="nav-bar__item">
-          <a
-            href="/historial"
-            className="nav-bar__link"
+          <NavLink
+            to="/historial"
+            className={({ isActive }) =>
+              isActive ? 'nav-bar__link nav-bar__link--active' : 'nav-bar__link'
+            }
           >
             Historial
-          </a>
+          </NavLink>
         </li>
       </ul>
     </nav>
-  );
+  )
 }
 
-export default NavBar;
+export default NavBar
