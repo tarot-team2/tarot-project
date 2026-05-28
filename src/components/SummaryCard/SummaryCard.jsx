@@ -6,11 +6,14 @@ const POSITION_LABELS = {
   future:  'Futuro',
 }
 
-const SummaryCard = ({ position, card }) => {
+const SummaryCard = ({ position, card, onClick}) => {
   if (!card) return null
 
   return (
-    <article className={`summary-card summary-card--${position}`}>
+    <article 
+    className={`summary-card summary-card--${position}`}
+    onClick={onClick}
+    >
 
       <div className="summary-card__top">
         <div className="summary-card__image-line"></div>

@@ -1,4 +1,4 @@
-import './DetailPositionButtonGroup.scss';
+import DetailPositionButton from "../DetailPositionButton/DetailPositionButton";
 
 const POSITIONS = [
   { id: 'past',    label: 'Pasado',   symbol: '\u263D' },
@@ -10,10 +10,8 @@ const DetailPositionButtonGroup = ({ activePosition, onPositionChange }) => {
   return (
     <nav className="detail-position-nav" aria-label="Seleccionar la posición de la carta de la que se quiere obtener el detalle">
       {POSITIONS.map(({ id, label, symbol }) => (
-        <button key={id} type="button" className={`detail-position-nav__btn detail-position-nav__btn--${id}${activePosition === id ? ' detail-position-nav__btn--active' : ''}`} onClick={() => onPositionChange(id)} aria-pressed={activePosition === id} aria-label={`Ver carta del ${label}`}>
-          <span className="detail-position-nav__symbol" aria-hidden="true">{symbol}</span>
-          <span className="detail-position-nav__label">{label}</span>
-        </button>
+        <DetailPositionButton key={id} position={id} label={label} symbol={symbol} isActive={activePosition === id} onClick={() => { onPositionChange (id)}}
+        />
       ))}
     </nav>
   );
