@@ -7,7 +7,7 @@ import HistoryCardMeta from '../HistoryCardMeta/HistoryCardMeta'
 // onEdit   — function(reading)
 // onDelete — function(id)
 const HistoryCard = ({ reading, onEdit, onDelete }) => {
-  const { consultantName, date, past, present, future } = reading
+  const { consultantName, date, pastCard, presentCard, futureCard} = reading
  
   return (
     <section className='history-card'>
@@ -21,9 +21,9 @@ const HistoryCard = ({ reading, onEdit, onDelete }) => {
       </div>
       <div className='history-card__cards'>
         <HistoryCardMeta
-          pastCard={past}
-          presentCard={present}
-          futureCard={future}
+          pastCard={pastCard}
+          presentCard={presentCard}
+          futureCard={futureCard}
         />
       </div>
     </section>

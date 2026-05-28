@@ -1,68 +1,41 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import './HistoryPage.scss'
 import HistoryCard from '../../components/HistoryCard/HistoryCard'
 import DeleteAllButton from '../../components/DeleteAllButton/DeleteAllButton'
 
-// ── Datos de prueba — mañana los reemplazamos por la API ──
-const MOCK_READINGS = [
-  {
-    id: '1',
-    consultantName: 'María García',
-    date: '18 de mayo de 2026',
-    past: {
-      arcaneName: 'La Emperatriz',
-      arcaneImage: { imageSrc: 'https://upload.wikimedia.org/wikipedia/commons/d/de/RWS_Tarot_01_Magician.jpg' },
-    },
-    present: {
-      arcaneName: 'La Justicia',
-      arcaneImage: { imageSrc: 'https://upload.wikimedia.org/wikipedia/commons/d/de/RWS_Tarot_01_Magician.jpg' },
-    },
-    future: {
-      arcaneName: 'La Estrella',
-      arcaneImage: { imageSrc: 'https://upload.wikimedia.org/wikipedia/commons/d/de/RWS_Tarot_01_Magician.jpg' },
-    },
-  },
-  {
-    id: '2',
-    consultantName: 'Ana Martínez',
-    date: '15 de mayo de 2026',
-    past: {
-      arcaneName: 'El Mago',
-      arcaneImage: { imageSrc: 'https://upload.wikimedia.org/wikipedia/commons/d/de/RWS_Tarot_01_Magician.jpg' },
-    },
-    present: {
-      arcaneName: 'La Torre',
-      arcaneImage: { imageSrc: 'https://upload.wikimedia.org/wikipedia/commons/d/de/RWS_Tarot_01_Magician.jpg' },
-    },
-    future: {
-      arcaneName: 'El Mundo',
-      arcaneImage: { imageSrc: 'https://upload.wikimedia.org/wikipedia/commons/d/de/RWS_Tarot_01_Magician.jpg' },
-    },
-  },
-]
+import { getReadings } from '../../service/readingsAPI'
+import { useLoaderData } from 'react-router'
 
 const HistoryPage = () => {
-  // TODO mañana: reemplazar useState(MOCK_READINGS) por fetch a la API
-  const [readings, setReadings] = useState(MOCK_READINGS)
+  const [readings, setReadings] = useState([])
 
-  console.log('HistoryPage se renderiza, readings:', readings)
+  useEffect(() => {
+    loadReadings()
+}, [])
 
-  const handleEdit = (reading) => {
-    // TODO mañana: implementar edición
-    console.log('editar', reading)
+const loadReadings = async () => {
+  try {
+    const data = await getReadings()
+
+    setReadings(data)
+
+  } catch (error) {
+    console.error('Error al cargar las lecturas:', error)
   }
+}
 
-  const handleDelete = (id) => {
-    // TODO mañana: llamar a la API para borrar
-    setReadings(readings.filter(r => r.id !== id))
-  }
+const handleEdit = (reading) => {
+  console.log('editar', reading)
+}
 
-  const handleDeleteAll = () => {
-    // TODO mañana: llamar a la API para borrar todo
-    setReadings([])
-  }
+const handleDelete = (id) => {
+  console.log('borrar', id)
+}
 
-  console.log('readings:', readings)
+const handleDeleteAll = () => {
+  setReadings([])
+}
+
   return (
     <div className="history-page">
       <div className="history-page__header">

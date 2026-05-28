@@ -4,11 +4,13 @@ import './SummaryPage.scss'
 import SummaryCard from '../../components/SummaryCard/SummaryCard'
 import Button from '../../components/Button/Button'
 import DetailCard from '../../components/DetailCard/DetailCard'
+import { saveReading } from '../../service/readingsAPI'
 
 
 const SummaryPage = () => {
   const { state } = useLocation()
   const navigate = useNavigate()
+
   const [userName, setUserName] = useState('')
   const [selectedCard, setSelectedCard] = useState(null)
   const [isModalOpen, setIsModalOpen] = useState(false)
@@ -25,17 +27,49 @@ const SummaryPage = () => {
 
   const { past, present, future } = state.selectedCards
 
-  console.log('PAST:', past)
-  console.log('PRESENT:', present)
-  console.log('FUTURE:', future)
-
-  const handleSaveReading = (card) => {
+  const handleSaveReading = async () => {
     if (!userName.trim()) return
-    console.log('guardar lectura', { userName, past, present, future })
+
+    const reading = {
+      consultantName: userName,
+      date: new Date().toLocaleDateString('es-ES', {
+        day: 'numeric',
+        month: 'long',
+        year: 'numeric',
+      }),
+        pastCard:{
+          arcaneName: past.arcaneName,
+          arcaneImage : {
+            imageSrc: past.arcaneImage.imageSrc,        
+          },
+        },
+        presentCard:{
+          arcaneName: present.arcaneName,
+          arcaneImage : {
+            imageSrc: present.arcaneImage.imageSrc,        
+          },
+        },
+        futureCard:{
+          arcaneName: future.arcaneName,
+          arcaneImage : {
+            imageSrc: future.arcaneImage.imageSrc,        
+          },
+        },
+    }
+    try {
+      await saveReading(reading)
+      navigate('/history')
+      
+      alert('Lectura guardada correctamente')
+      setUserName('')
+      
+    } catch (error) {
+      console.error('Error al guardar la lectura:', error)
+
+    }
   }
 
   const handleOpenModal = (card) => {
-    console.log('abrir modal', card)
     setIsModalOpen(true)
     setSelectedCard(card)
   }
