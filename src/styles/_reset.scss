@@ -45,11 +45,3 @@ a {
     text-decoration: none;
     color: inherit;
 }
-
-main {
-    min-height: calc(100vh - 128px);
-    display: flex;
-    flex-direction: column;
-    padding-top: 64px; // espacio para el header fijo
-    padding-bottom: 64px; // espacio para el footer fijo
-}
