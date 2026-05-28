@@ -1,5 +1,11 @@
-function DeleteAllButton() {
-  return <button>Vaciar</button>;
+import './DeleteAllButton.scss'
+
+const DeleteAllButton = ({ onClick }) => {
+  return (
+    <button className="delete-all-button" onClick={onClick}>
+      Eliminar todo
+    </button>
+  )
 }
 
-export default DeleteAllButton;  
+export default DeleteAllButton

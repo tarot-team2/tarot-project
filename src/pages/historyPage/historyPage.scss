@@ -1,29 +1,50 @@
-@use "../../styles/variables" as *;
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
 
 .history-page {
-  min-height: 100vh;
-  padding: $space-4;
-  padding-top: 7rem;
-  padding-bottom: 8rem;
-  background-color: $color-bg;
-
-  &__header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: $space-5;
-  }
-
-  &__title {
-    font-family: $font-display;
-    font-size: $fs-2xl;
-    color: $color-grape;
-    margin: 0;
-  }
-
-  &__cards {
+    min-height: 100vh;
+    background: $color-bg;
+    padding: $space-6 $space-4;
     display: flex;
     flex-direction: column;
     gap: $space-4;
-  }
+
+    &__header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: $space-4;
+    }
+
+    &__title {
+        font-family: $font-display;
+        font-size: $fs-2xl;
+        font-weight: $fw-regular;
+        color: $color-grape;
+        margin: 0;
+    }
+
+    &__list {
+        display: flex;
+        flex-direction: column;
+        gap: $space-5;
+    }
+
+    &__empty {
+        font-family: $font-body;
+        font-size: $fs-base;
+        color: $color-faint;
+        text-align: center;
+        padding: $space-8 0;
+    }
+
+    @include tablet {
+        padding: $space-8 $space-6;
+    }
+
+    @include desktop {
+        max-width: 860px;
+        margin: 0 auto;
+        padding: $space-8;
+    }
 }
