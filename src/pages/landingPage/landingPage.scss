@@ -1,37 +1,85 @@
 @use '../../styles/variables' as *;
 @use '../../styles/mixins' as *;
+
+// stars
+
+@keyframes twinkle {
+    0%, 100% { opacity: 0; transform: scale(0.5); }
+    50%       { opacity: 1; transform: scale(1); }
+}
+
+@keyframes drift {
+    0%   { transform: translateY(0) translateX(0) rotate(0deg); opacity: 0; }
+    10%  { opacity: 1; }
+    90%  { opacity: 1; }
+    100% { transform: translateY(-120px) translateX(20px) rotate(180deg); opacity: 0; }
+}
+
+.landing-page__stars {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.star-particle {
+    position: absolute;
+    color: $color-lav;
+    font-size: 10px;
+    animation: twinkle 2s ease-in-out infinite, drift 6s ease-in-out infinite;
+    opacity: 0;
+    
+    @for $i from 1 through 12 {
+    &:nth-child(#{$i}) {
+        left: #{random(90) + '%'};
+        top: #{random(90) + '%'};
+        animation-delay: #{$i * 0.4}s;
+        animation-duration: #{2 + random(3)}s, #{5 + random(4)}s;
+        font-size: #{8 + random(8)}px;
+    }
+    }
+}
+
+// landing
+
 .landing-page {
+    position: relative;
     overflow-x: hidden;
     width: 100%;
     min-height: calc(100vh - 120px);
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+
     @include desktop {
         justify-content: center;
     }
+
     &__main {
         flex: 1;
         display: flex;
         align-items: flex-start;
         justify-content: center;
-        // Al aumentar el padding vertical, reducimos drásticamente los parches vacíos de fondo arriba/abajo
-        padding: $space-8 $space-4 $space-10 $space-4;
+        padding: $space-8 $space-4;
         width: 100%;
         max-width: 1440px;
         margin: 0 auto;
         box-sizing: border-box;
+
         @include tablet {
             align-items: center;
             padding: $space-8 $space-6;
         }
     }
+
     &__content-layout {
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
         width: 100%;
+
         @include desktop {
             flex-direction: row;
             justify-content: space-between;
@@ -40,93 +88,111 @@
             gap: $space-4;
         }
     }
+
     &__hero {
         display: flex;
         flex-direction: column;
         align-items: center;
         text-align: center;
         width: 100%;
+
         @include desktop {
             align-items: flex-start;
             text-align: left;
             max-width: 540px;
         }
     }
+
     &__tag-wrapper {
         margin-top: $space-2;
-        margin-bottom: $space-5; // Espacio calibrado y limpio (equivalente a tus ~20px+ sin hardcode)
+        margin-bottom: $space-5;
         display: flex;
         justify-content: center;
+
         @include desktop {
             margin-top: 0;
             justify-content: flex-start;
             margin-bottom: $space-2;
         }
     }
+
     &__title {
         font-family: $font-display;
-        font-size: 1.7rem;
+        font-size: 2.8rem;
         color: $color-grape;
-        line-height: 1.3; // Un poco más de interlineado para que las letras no se peguen
+        line-height: 1.3;
         margin-top: 0;
-        margin-bottom: $space-5; // Espacio calibrado y limpio (equivalente a tus ~20px+ sin hardcode)
+        margin-bottom: $space-5;
         font-weight: $fw-medium;
+
         &--italic {
             font-style: italic;
             color: $color-lav;
         }
+
         @include tablet {
             font-size: 3rem;
             margin-bottom: $space-4;
         }
+
         @include desktop {
             font-size: 3.8rem;
             margin-bottom: $space-3;
         }
     }
+
     &__positions-row {
         font-family: $font-body;
-        font-size: $fs-sm;
+        font-size: $fs-md;
         color: $color-blue;
-        letter-spacing: 2px;
+        letter-spacing: 3px;
         font-weight: $fw-semibold;
         margin-bottom: $space-3;
     }
+
     &__description {
         font-family: $font-body;
-        font-size: $fs-base;
+        font-size: $fs-md;
         color: $color-muted;
-        line-height: 1.6; // Mayor separación entre las líneas de texto del párrafo
+        line-height: 1.6;
         margin-top: 0;
-        margin-bottom: $space-5; // Espacio calibrado y limpio (equivalente a tus ~20px+ sin hardcode)
+        margin-bottom: $space-5;
         width: 100%;
+        max-width: 320px;
+
         @include tablet {
             font-size: $fs-md;
             line-height: 1.6;
             margin-bottom: $space-6;
         }
+
         @include desktop {
             max-width: 480px;
         }
     }
+
     &__actions {
         width: 100%;
         display: flex;
         justify-content: center;
+
         @include desktop {
             justify-content: flex-start;
         }
     }
+
     &__visual {
         display: flex;
         justify-content: center;
         align-items: center;
         width: 100%;
+
         @include desktop {
             width: auto;
             flex: 1;
         }
     }
+
     &__cards-container {
         display: flex;
         align-items: center;
@@ -134,117 +200,12 @@
         gap: $space-3;
         padding: $space-2 0;
         width: 100%;
-        margin-top: $space-6; // Separación superior limpia para despegar las cartas del botón azul en móvil
+        margin-top: $space-6;
+
         @include tablet {
             gap: $space-6;
             padding: $space-6 $space-4;
             margin-top: 0;
         }
-    }
-}
-
-.landing-preview-card {
-    background: $gradient-card-back;
-    border: $border-default;
-    border-radius: $radius-xl;
-    position: relative;
-    box-shadow: $shadow-md;
-    outline: none;
-    padding: 0;
-    cursor: pointer;
-    transition: transform $duration-normal ease, box-shadow $duration-normal ease, border-color $duration-normal ease;
-    width: 85px;
-    height: 130px;
-    @include tablet {
-        width: 140px;
-        height: 220px;
-        transform: scale(0.9);
-    }
-    @include desktop {
-        width: 160px;
-        height: 250px;
-    }
-    &__border {
-        position: absolute;
-        inset: 5px;
-        border: 0.5px solid rgba($color-white, 0.4);
-        border-radius: $radius-lg;
-        pointer-events: none;
-    }
-    &__content {
-        width: 100%;
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        gap: $space-1;
-        padding: $space-2;
-        box-sizing: border-box;
-    }
-    &__icon {
-        font-size: 1.1rem;
-        transition: transform $duration-normal ease;
-        @include tablet {
-            font-size: 2rem;
-        }
-        @include desktop {
-            font-size: 2.5rem;
-        }
-    }
-    &__label {
-        font-family: $font-body;
-        font-size: $fs-xs;
-        font-weight: $fw-semibold;
-        letter-spacing: 0.5px;
-        color: $color-lav-dark;
-        @include tablet {
-            font-size: $fs-sm;
-            letter-spacing: 1px;
-        }
-    }
-    &:hover:not(&--featured) {
-        transform: translateY(-5px);
-        box-shadow: $shadow-lg;
-        @include tablet {
-            transform: scale(0.95) translateY(-10px);
-        }
-        .landing-preview-card__icon {
-            transform: scale(1.1);
-        }
-    }
-    &--featured {
-        transform: scale(1.05);
-        z-index: 2;
-        box-shadow: $shadow-lg;
-        border-color: rgba($color-lav, 0.4);
-        @include tablet {
-            transform: scale(1.18);
-        }
-        @include desktop {
-            transform: scale(1.25);
-        }
-        &:hover {
-            transform: scale(1.08) translateY(-6px);
-            border-color: $color-lav;
-            @include tablet {
-                transform: scale(1.22) translateY(-12px);
-            }
-            @include desktop {
-                transform: scale(1.3) translateY(-16px);
-            }
-            .landing-preview-card__icon {
-                transform: scale(1.15) rotate(5deg);
-            }
-        }
-    }
-    &--past .landing-preview-card__icon {
-        color: $color-lav-dark;
-    }
-    &--present .landing-preview-card__icon {
-        color: $color-blue-dark;
-    }
-    &--future .landing-preview-card__icon {
-        color: $color-rose-dark;
     }
 }
