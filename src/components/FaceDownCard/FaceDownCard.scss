@@ -20,7 +20,6 @@
     box-shadow: $shadow-md;
   }
 
-  // Disabled state — when 3 cards already selected
   &--disabled {
     opacity: 0.4;
     cursor: not-allowed;

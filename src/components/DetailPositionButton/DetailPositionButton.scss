@@ -3,16 +3,20 @@
 
 .detail-position-btn {
   position: relative;
-  display: flex;
+  
+  display: inline-flex;
   flex-direction: row;
   align-items: center;
-  gap: 0.3rem;
-  padding: 0.6rem 1rem;
-  border: 0.5px solid;
+  padding: $space-2 $space-3;
+  border: 1px solid currentColor;
   border-radius: $radius-md;
   cursor: pointer;
   font-family: $font-body;
-  font-size: $fs-base;
+  font-size: $fs-sm;
+  white-space: nowrap;
+  background: transparent;
+  transition: $transition-base;
+  margin: 0 $space-2;
 
   &:focus-visible {
     outline-offset: 2px;
@@ -44,9 +48,12 @@
       color: $color;
 
       &.detail-position-btn--active {
-        background: rgba($color, 0.2);
-        border-color: rgba($color, 0.4);
+        background: mix($color, $color-white, 25%);
+        border-color: $color;
         box-shadow: 0 0 16px rgba($color, 0.3);
+        color: darken($color, 10%);
+        font-weight: $fw-semibold;
+
 
         &::after {
           background: linear-gradient(90deg, transparent, $color, transparent);
@@ -79,5 +86,13 @@
       border-radius: $radius-md;
     }
   }
+// DESKTOP
+@media (min-width: $bp-desktop) {
+  padding: $space-3 $space-4;
+  font-size: $fs-base;
 
+  .detail-position-btn__label {
+    font-size: $fs-base;
+  }
+}
 }
