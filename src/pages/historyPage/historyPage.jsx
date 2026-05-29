@@ -3,8 +3,7 @@ import './HistoryPage.scss'
 import HistoryCard from '../../components/HistoryCard/HistoryCard'
 import DeleteAllButton from '../../components/DeleteAllButton/DeleteAllButton'
 
-import { getReadings, updateReading } from '../../service/readingsAPI'
-import { useLoaderData } from 'react-router'
+import { getReadings, updateReading, deleteReading } from '../../service/readingsAPI'
 
 const HistoryPage = () => {
   const [readings, setReadings] = useState([])
@@ -40,13 +39,22 @@ const handleEdit = async (reading) => {
   }
 }
 
-
-const handleDelete = (id) => {
-  console.log('borrar', id)
+const handleDelete = async (id) => {
+  try {
+    await deleteReading(id)
+    loadReadings()
+  } catch (error) {
+    console.error('Error al eliminar la lectura:', error)
+  }
 }
 
-const handleDeleteAll = () => {
-  setReadings([])
+const handleDeleteAll = async () => {
+  try {
+    await Promise.all(readings.map(reading => deleteReading(reading.id)))
+    loadReadings()
+  } catch (error) {
+    console.error('Error al eliminar todas las lecturas:', error)
+  }
 }
 
   return (

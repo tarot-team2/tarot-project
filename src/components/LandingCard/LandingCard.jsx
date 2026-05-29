@@ -10,14 +10,18 @@ const POSITION_CONFIG = {
   future:  { label: 'Futuro',   icon: '★' },
 }
 
-const LandingCard = ({ position }) => {
+const LandingCard = ({ position, featured = false }) => {
   const navigate = useNavigate()
   const { label, icon } = POSITION_CONFIG[position]
 
   return (
     <div
-      className={`landing-card landing-card--${position}`}
-      onClick={() => navigate('/lectura')}
+      className={[
+        'landing-card',
+        `landing-card--${position}`,
+        featured ? 'landing-card--featured' : '',
+      ].join(' ')}
+      onClick={() => navigate('/mazo')}
       role="button"
       aria-label={`Ir a la lectura — ${label}`}
     >
