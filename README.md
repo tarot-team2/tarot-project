@@ -1,5 +1,5 @@
 # CONTEMPORATY GODDESSES TAROT 🔮
-Aplicacion web de lectura de las cartas del tarot para descrubir tu Contemporary Goddess en el mundo Tech utilizando React.
+Aplicación web de lectura de las cartas del tarot para descubrir tu Contemporary Goddess en el mundo Tech utilizando React.
 
 ## Descripción
 
@@ -94,7 +94,6 @@ src
 │   └── summaryPage
 ├── service
 └── styles
-
 ```
 
 ## Equipo
@@ -102,7 +101,6 @@ src
 Proyecto desarrollado por:
 
 - Damaris Castro
-- Laura benito
 - Nira Mantilla
 - Rukayatu Seidu
 - Viviana Andrango
